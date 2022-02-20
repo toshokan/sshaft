@@ -35,5 +35,4 @@ func main() {
 	for _, line := range keyLines {
 		fmt.Printf("%s", line)
 	}
-	fmt.Printf("cfg: %v\n", cfg)
 }
