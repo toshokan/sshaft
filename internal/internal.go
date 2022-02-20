@@ -89,7 +89,6 @@ func GetMFAKeys(cfg Config, token Token) (keys []MFAKey, err error) {
 		return
 	}
 	if resp.StatusCode != http.StatusOK {
-		fmt.Println(resp.StatusCode)
 		err = errors.New("Failed to get MFA keys")
 		return
 	}
@@ -122,7 +121,6 @@ func MFAAccept(cfg Config, token Token, user string) error {
 		return err
 	}
 	if resp.StatusCode != http.StatusOK {
-		fmt.Println(resp.StatusCode)
 		err = errors.New("Failed to accept challenge")
 		return err
 	}
