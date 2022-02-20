@@ -12,7 +12,7 @@ sshaft's `sshaft-keys` component is hooked into the `sshd` process as an `Author
 
 sshaft uses the credentials and token endpoint in its config file to acquire an access token from `tomiko` that authorizes it to retrieve the list of SSH public keys for users with active SSH challenges from `identity`. It outputs these keys in the format of an `authorized_keys` file, alongside a command override that ensures users that successfully authenticate get directed to the next sshaft component rather than to a shell on the system.
 
-The next component `sshaft-login` is only called (by the command override from earlier) when a user successfully authenticates with their SSH key. This component informs `identity` that the authentication challenge has been passed.
+The next component, `sshaft-login`, is only called (by the command override from earlier) when a user successfully authenticates with their SSH key. This component informs `identity` that the authentication challenge has been passed, which allows the user to continue their login flow.
 
 # Usage
 
@@ -35,7 +35,7 @@ You will need to supply a config file and SSH host keys.
 
 ```
 
-In a standard `tomiko` deployment, `idp.example.com` will point to `tomiko`, `authc.example.com` will point to `identity`, and the scope will be `tomiko::mfa:rw`.
+In a standard `tomiko` deployment, `idp.example.com` is replaced with `tomiko`'s hostname, `authc.example.com` is replaced with `identity`'s hostname, and the scope will be `tomiko::mfa:rw`.
 
 # License
 
